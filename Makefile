@@ -12,11 +12,13 @@
 
 NAME = so_long
 
-BONUS_NAME = so_long_bonus
+BONUS_NAME = $(NAME)
 
 CC = @cc
 
-CFLAGS = -Wall -Wextra -Werror -I./includes
+CFLAGS = -Wall -Wextra -Werror $(INC)
+
+INC = -I./includes -I$(MLX_PATH) -I/usr/include
 
 RM = @rm -rf
 
@@ -55,37 +57,41 @@ LIBFT_PATH = ./libft
 
 LIBFT = $(LIBFT_PATH)/libft.a
 
+MLX_PATH = ./mlx_linux
+
+MLX = $(MLX_PATH)/libmlx.a
+
 # Compilation des fichiers objets
 $(OBJ_DIR)/%.o: $(SRCS_DIR)/%.c | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DI)/%.o: $(BONUS_SRCS_DIR)/%.c | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -03 -c $< -o $@
+	@$(CC) $(CFLAGS) -03 -c $< -o $@
 
 # Cible principale
 all: $(NAME)
 
 # Création de l'exécutable
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(MLX) $(LIBFT) $(OBJS)
 	@$(CC) -o $(NAME) $(CFLAGS) $(OBJS) -L$(LIBFT_PATH) -lft -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
-		@echo "\033[36m    ______/ \-.   _  "
-		@echo "\033[36m .-/     (    o\_//    *~o~o~* SO_LONG Compiled !*~o~o~* "
-		@echo "\033[36m  |  ___  \_/\---'   "
-		@echo "\033[36m   |_||  |_||        "
 		@echo "\033[0;92m * $(NAME) program file was created\033[0m *"
 
 bonus :	$(LIBFT) $(OBJS_BONUS)
 	@$(CC) -o $(BONUS_NAME) $(CFLAGS) $(OBJS_BONUS) -L$(LIBFT_PATH) -lft -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
-		@echo "\033[36m     /\_/\           ___"
-		@echo "\033[36m    = o_o =_______    \ \     *~o~o~* BONUS Compiled !*~o~o~* "
-		@echo "\033[36m     __^      __(  \.__) )    "
-		@echo "\033[36m (@)<_____>__(_____)____/   "
 		@echo "\033[0;92m* $(BONUS_NAME) program file was created\033[0m *"
 
 
 # Construction de la libft
 $(LIBFT):
 	@$(MAKE) $(LIBFT_PATH) all
+
+# Construction de la minilibx
+$(MLX):
+	@if [ ! -f $(MLX_PATH)/Makefile ]; then \
+		echo "\033[0;31mError: MLX submodule is missing. Run: git submodule update --init\033[0m"; \
+		exit 1; \
+	fi
+	@$(MAKE) $(MLX_PATH)
 
 # Création du répertoire des objets
 $(OBJ_DIR):
@@ -94,6 +100,7 @@ $(OBJ_DIR):
 # Nettoyage des fichiers objets
 clean:
 	@$(MAKE) $(LIBFT_PATH) clean
+	@$(MAKE) $(MLX_PATH) clean
 	@$(RM) $(OBJ_DIR)
 	@echo "\033[0;91m* $(NAME) object files was deleted *\033[0m"
 
@@ -105,18 +112,5 @@ fclean: clean
 
 # Reconstruction complète
 re: fclean all
-
-party :	
-	@printf "\033c"
-	@echo "\n\033[35m♪┏(・o･)┛♪"
-	@sleep 0.5
-	@printf "\033c"
-	@echo "\033[1;33m♪┗(・o･)┓♪"
-	@sleep 0.5
-	@printf "\033c"
-	@echo "\n\033[36m♪┏(・o･)┛♪"
-	@sleep 0.5
-	@printf "\033c"
-	@echo "\033[34m♪┗(・o･)┓♪\n"
 
 .PHONY: all clean fclean re bonus
