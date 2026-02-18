@@ -1,10 +1,10 @@
-so_long - @42Paris
-🎮 About the project
+# so_long - @42Paris
+### 🎮 About the project
 
 so_long is a simple 2D game developed using the MiniLibX (a small graphics library). The goal is to guide a character through a map, collecting items and reaching the exit with the minimum number of moves.
 
 This project is an introduction to graphical programming, window management, event handling (keyboard/mouse), and sprite rendering.
-🏗️ Bonus Features Included
+### 🏗️ Bonus Features Included
 
     Enemy Patrols: Added moving enemies that cause a game over if touched.
 
@@ -12,7 +12,7 @@ This project is an introduction to graphical programming, window management, eve
 
     On-screen Move Counter: The current number of moves is displayed directly on the game window instead of just the terminal.
 
-🗺️ Map Rules
+### 🗺️ Map Rules
 
 The game parses a .ber file which must follow these constraints:
 
@@ -24,21 +24,21 @@ The game parses a .ber file which must follow these constraints:
 
     Path: There must be a valid path to all collectibles and the exit.
 
-🛠️ Controls
+### 🛠️ Controls
 Key	Action
 W Move Up
 A Move Left
 S Move Down
 D Move Right
 ESC	Close the game
-🚀 Getting Started
+### 🚀 Getting Started
 Requirements
 
 The project requires the MiniLibX and its dependencies (X11, AppKit, or OpenGL depending on your OS).
 Compilation
 Bash
 
-# Compile the game with bonus features
+ Compile the game with bonus features
 make bonus
 
 # Remove object files
@@ -54,7 +54,7 @@ Bash
 
 ./so_long maps/map.ber
 
-🎨 Graphics & Assets
+### 🎨 Graphics & Assets
 
 I used a custom sprite set to create a unique atmosphere.
 
@@ -62,7 +62,7 @@ I used a custom sprite set to create a unique atmosphere.
 
     Game Loop: Utilizes the mlx_loop_hook to handle animations and enemy movements smoothly.
 
-📂 Project Structure
+### 📂 Project Structure
 
     /src: Source files for the game logic.
 
@@ -72,7 +72,7 @@ I used a custom sprite set to create a unique atmosphere.
 
     /map: Sample .ber maps for testing.
 
-📬 Contact
+##### 📬 Contact
 
     Login: qsomarri
 
