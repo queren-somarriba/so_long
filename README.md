@@ -6,37 +6,37 @@ so_long is a simple 2D game developed using the MiniLibX (a small graphics libra
 This project is an introduction to graphical programming, window management, event handling (keyboard/mouse), and sprite rendering.
 ### 🏗️ Bonus Features Included
 
-    Enemy Patrols: Added moving enemies that cause a game over if touched.
+   * Enemy Patrols: Added moving enemies that cause a game over if touched.
 
-    Sprite Animation: The exit is animated when the player has colleced all the items on the map.
+    * Sprite Animation: The exit is animated when the player has colleced all the items on the map.
 
-    On-screen Move Counter: The current number of moves is displayed directly on the game window instead of just the terminal.
+    * On-screen Move Counter: The current number of moves is displayed directly on the game window instead of just the terminal.
 
 ### 🗺️ Map Rules
 
 The game parses a .ber file which must follow these constraints:
 
-    Walls: The map must be surrounded by walls (1).
+    * Walls: The map must be surrounded by walls (1).
 
-    Components: Must contain at least one exit (E), one starting position (P), and at least one collectible (C).
+    * Components: Must contain at least one exit (E), one starting position (P), and at least one collectible (C).
 
-    Shape: The map must be rectangular.
+    * Shape: The map must be rectangular.
 
-    Path: There must be a valid path to all collectibles and the exit.
+    * Path: There must be a valid path to all collectibles and the exit.
 
 ### 🛠️ Controls
-Key	Action
-W Move Up
-A Move Left
-S Move Down
-D Move Right
-ESC	Close the game
+
+* W Move Up
+* A Move Left
+* S Move Down
+* D Move Right
+* ESC	Close the game
 ### 🚀 Getting Started
 Requirements
 
 The project requires the MiniLibX and its dependencies (X11, AppKit, or OpenGL depending on your OS).
 Compilation
-Bash
+```Bash
 
  Compile the game with bonus features
 make bonus
@@ -53,24 +53,25 @@ Run the game by providing a map file as an argument:
 Bash
 
 ./so_long maps/map.ber
+```
 
 ### 🎨 Graphics & Assets
 
 I used a custom sprite set to create a unique atmosphere.
 
-    Tileset size: 64x64 pixels.
+   * Tileset size: 64x64 pixels.
 
-    Game Loop: Utilizes the mlx_loop_hook to handle animations and enemy movements smoothly.
+    * Game Loop: Utilizes the mlx_loop_hook to handle animations and enemy movements smoothly.
 
 ### 📂 Project Structure
 
-    /src: Source files for the game logic.
+  *  /src: Source files for the game logic.
 
-    /xpm: XPM files for player, walls, collectibles, and enemies.
+  * /xpm: XPM files for player, walls, collectibles, and enemies.
 
-    /libft: My custom C library (Libft).
+  * /libft: My custom C library (Libft).
 
-    /map: Sample .ber maps for testing.
+  * /map: Sample .ber maps for testing.
 
 ##### 📬 Contact
 
