@@ -1,63 +1,79 @@
-# So_long
+so_long - @42Paris
+🎮 About the project
 
-So_long est un projet en C utilisant la bibliothèque `mlx` pour créer un petit jeu 2D basé sur un labyrinthe. L'objectif est de déplacer un personnage sur une carte afin de collecter des objets et atteindre une sortie.
+so_long is a simple 2D game developed using the MiniLibX (a small graphics library). The goal is to guide a character through a map, collecting items and reaching the exit with the minimum number of moves.
 
-## Installation
+This project is an introduction to graphical programming, window management, event handling (keyboard/mouse), and sprite rendering.
+🏗️ Bonus Features Included
 
-Pour compiler `so_long`, utilisez la commande suivante :
+    Enemy Patrols: Added moving enemies that cause a game over if touched.
 
-```sh
-gcc -Wall -Wextra -Werror so_long.c utils/*.c -lmlx -framework OpenGL -framework AppKit -o so_long
-```
+    Sprite Animation: The exit is animated when the player has colleced all the items on the map.
 
-## Utilisation
+    On-screen Move Counter: The current number of moves is displayed directly on the game window instead of just the terminal.
 
-La syntaxe de `so_long` est la suivante :
+🗺️ Map Rules
 
-```sh
-./so_long map.ber
-```
+The game parses a .ber file which must follow these constraints:
 
-- `map.ber` : Fichier contenant la carte du jeu au format `.ber`.
+    Walls: The map must be surrounded by walls (1).
 
-Exemple :
+    Components: Must contain at least one exit (E), one starting position (P), and at least one collectible (C).
 
-```sh
-./so_long map/level1.ber
-```
+    Shape: The map must be rectangular.
 
-## Règles du jeu
+    Path: There must be a valid path to all collectibles and the exit.
 
-- Le joueur peut se déplacer avec les touches `W`, `A`, `S`, `D`.
-- Il doit collecter tous les objets (`C`) avant de pouvoir atteindre la sortie (`E`).
-- Les murs (`1`) bloquent les déplacements.
-- L'espace vide est représenté par `0`.
-- Le joueur est représenté par `P`.
+🛠️ Controls
+Key	Action
+W Move Up
+A Move Left
+S Move Down
+D Move Right
+ESC	Close the game
+🚀 Getting Started
+Requirements
 
-### Exemple de carte
+The project requires the MiniLibX and its dependencies (X11, AppKit, or OpenGL depending on your OS).
+Compilation
+Bash
 
-```
-11111
-1P0C1
-1C0E1
-11111
-```
+# Compile the game with bonus features
+make bonus
 
-## Bonus : Améliorations supplémentaires
+# Remove object files
+make clean
 
-La version bonus ajoute les fonctionnalités suivantes :
+# Remove all generated files
+make fclean
 
-### Mouvements animés
-- Ajout d’animations pour le personnage lors des déplacements.
-- Effets visuels pour une meilleure immersion.
+Execution
 
-### Ennemis
-- Ajout d’ennemis qui se déplacent sur la carte et poursuivent le joueur.
-- Si un ennemi attrape le joueur, la partie est perdue.
+Run the game by providing a map file as an argument:
+Bash
 
-### Compteur de mouvements
-- Affichage du nombre de déplacements effectués par le joueur.
-- Objectif : terminer le niveau en un minimum de coups.
+./so_long maps/map.ber
 
-### Support de plusieurs cartes
-- Possibilité de charger différents niveaux en modifiant le fichier `.ber`.
+🎨 Graphics & Assets
+
+I used a custom sprite set to create a unique atmosphere.
+
+    Tileset size: 64x64 pixels.
+
+    Game Loop: Utilizes the mlx_loop_hook to handle animations and enemy movements smoothly.
+
+📂 Project Structure
+
+    /src: Source files for the game logic.
+
+    /xpm: XPM files for player, walls, collectibles, and enemies.
+
+    /libft: My custom C library (Libft).
+
+    /map: Sample .ber maps for testing.
+
+📬 Contact
+
+    Login: qsomarri
+
+    School: 42 Paris
