@@ -6,7 +6,7 @@ so_long is a simple 2D game developed using the MiniLibX (a small graphics libra
 This project is an introduction to graphical programming, window management, event handling (keyboard/mouse), and sprite rendering.
 
 <p align="center">
-  <img src="assets/so_long.gif" alt="so_long" width="600">
+  <img src="assets/so_long.gif" alt="so_long" width="800">
 </p>
 
 
