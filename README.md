@@ -4,6 +4,12 @@
 so_long is a simple 2D game developed using the MiniLibX (a small graphics library). The goal is to guide a character through a map, collecting items and reaching the exit with the minimum number of moves.
 
 This project is an introduction to graphical programming, window management, event handling (keyboard/mouse), and sprite rendering.
+
+<p align="center">
+  <img src="assets/so_long.gif" alt="so_long" width="600">
+</p>
+
+
 ### 🏗️ Bonus Features Included
 
    * Enemy Patrols: Added moving enemies that cause a game over if touched.
